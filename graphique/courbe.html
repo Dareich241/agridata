@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr" >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+      Highcharts.chart('container', {
+  chart: {
+      type: 'spline'
+  },
+  title: {
+      text: ''
+  },
+  subtitle: {
+      text: ''
+  },
+  xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { // don't display the dummy year
+          month: '%e. %b',
+          year: '%b'
+      },
+      title: {
+          text: 'Période'
+      }
+  },
+  yAxis: {
+      title: {
+          text: 'Evolution de la production (%)'
+      },
+      min: 0
+  },
+  tooltip: {
+      headerFormat: '<b>{series.name}</b><br>',
+      pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+  },
+
+  plotOptions: {
+      spline: {
+          marker: {
+              enabled: false
+          }
+      }
+  },
+
+  colors: ['#925316', '#0685D4', '#548235', '#036', '#000'],
+
+  // Define the data points. All series have a dummy year
+  // of 1970/71 in order to be compared on the same x axis. Note
+  // that in JavaScript, months start at 0 for January, 1 for February etc.
+  series: [{
+      name: "Manioc",
+      data: [
+          [Date.UTC(1970, 9, 1), 0],
+          [Date.UTC(1970, 9, 5), 0.3],
+          [Date.UTC(1970, 9, 10), 0.3],
+          [Date.UTC(1970, 9, 15), 0.5],
+          [Date.UTC(1970, 9, 20), 1],
+          [Date.UTC(1970, 9,  25), 0.8],
+          [Date.UTC(1970, 9, 30), 0.9],
+          [Date.UTC(1970, 10, 5), 0.5],
+          [Date.UTC(1970, 10, 10), 1.2],
+          [Date.UTC(1970, 10, 15), 1.5],
+          [Date.UTC(1970, 10, 20), 0.5],
+          [Date.UTC(1970, 10, 25), 0.7],
+          [Date.UTC(1970, 10, 30), 1.2],
+          [Date.UTC(1970, 11, 5), 0.5],
+          [Date.UTC(1970, 11, 10), 0.2],
+          [Date.UTC(1970, 11, 15), 0.5],
+          [Date.UTC(1970, 11, 20), 0.8],
+          [Date.UTC(1970, 11, 25), 0.5],
+          [Date.UTC(1970, 11, 30), 0.8]
+
+      ]
+  }, {
+      name: "Banane",
+      data: [
+          [Date.UTC(1970, 9,  1), 0],
+          [Date.UTC(1970, 9,  3), 0],
+          [Date.UTC(1970, 9, 15), 0.7],
+          [Date.UTC(1970, 9, 20), 0.25],
+          [Date.UTC(1970, 9, 25), 0.5],
+          [Date.UTC(1970, 9, 30), 0.25],
+          [Date.UTC(1970, 10, 5), 0.5],
+          [Date.UTC(1970, 10, 10), 1],
+          [Date.UTC(1970, 10, 15), 0.5],
+          [Date.UTC(1970, 10, 20), 0.3],
+          [Date.UTC(1970, 10, 25), 0.5],
+          [Date.UTC(1970, 11,  5), 0.5],
+          [Date.UTC(1970, 11,  10), 1],
+          [Date.UTC(1970, 11,  15), 0.5],
+          [Date.UTC(1970, 11, 20), 0.3],
+          [Date.UTC(1970, 11,  25), 0.7],
+          [Date.UTC(1970, 11,  30), 0.7],
+
+
+
+
+
+      ]
+  }, {
+      name: "Tomate",
+      data: [
+          [Date.UTC(1970, 9, 5), 0],
+          [Date.UTC(1970, 9, 10), 1],
+          [Date.UTC(1970, 9, 15), 0.5],
+          [Date.UTC(1970, 9, 20), 0.6],
+          [Date.UTC(1970, 9,  25), 0.7],
+          [Date.UTC(1970, 9, 30), 0.5],
+          [Date.UTC(1970, 10, 5), 0.8],
+          [Date.UTC(1970, 10, 10), 1],
+          [Date.UTC(1970, 10, 15), 0.5],
+          [Date.UTC(1970, 10, 20), 0.6],
+          [Date.UTC(1970, 10, 25), 1],
+          [Date.UTC(1970, 10, 30), 0.1],
+          [Date.UTC(1970, 10, 31), 0.1]
+
+      ]
+  }]
+});
+    </script>
+  </body>
+</html>

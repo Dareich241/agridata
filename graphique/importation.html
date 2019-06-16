@@ -6,8 +6,67 @@
   </head>
   <body>
     <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script type="text/javascript">
+          var pieColors = (function () {
+           var colors = [],
+               base = Highcharts.getOptions().colors[3],
+               i;
+
+           for (i = 0; i < 10; i += 1) {
+               // Start out with a darkened base color (negative brighten), and end
+               // up with a much brighter color
+               colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+           }
+           return colors;
+          }());
+
+          // Build the chart
+          Highcharts.chart('container', {
+           chart: {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false,
+               type: 'pie'
+           },
+           title: {
+               text: ''
+           },
+           tooltip: {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+           },
+           plotOptions: {
+               pie: {
+                   allowPointSelect: true,
+                   cursor: 'pointer',
+                   colors: pieColors,
+                   dataLabels: {
+                       enabled: true,
+                       format: '<b>{point.name}</b><br>{point.percentage:.0f} %',
+                       distance: -50,
+                       filter: {
+                           property: 'percentage',
+                           operator: '>',
+                           value: 4
+                       }
+                   }
+               }
+           },
+           series: [{
+               name: 'Share',
+               data: [
+                   { name: 'Manioc', y: 15 },
+                   { name: 'Banane', y: 23 },
+                   { name: 'Piment', y: 30 },
+                   { name: 'Oignon', y: 12 },
+                   { name: 'Tomate', y: 20}
+               ]
+           }]
+          });
+    </script>
   </body>
 </html>

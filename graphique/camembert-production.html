@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div id="container" style="height: 400px"></div>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script type="text/javascript">
+                Highcharts.chart('container', {
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45
+                }
+            },
+            title: {
+                text: 'Production par zone'
+            },
+            subtitle: {
+                text: ''
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: 100,
+                    depth: 45
+                }
+            },
+            series: [{
+                name: 'Production',
+                data: [
+                    ['Bananes : 10 tonnes', 10],
+                    ['Manioc : 40 tonnes', 40],
+                    ['Tomate : 20 tonnes', 20],
+                    ['Piment : 9 tonnes', 9],
+                    ['Oignon : 17 tonnes', 8]
+                ]
+            }]
+          });
+    </script>
+  </body>
+</html>
